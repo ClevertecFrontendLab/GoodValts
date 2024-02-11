@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+  transition-duration: .3s;
+}
+
+@mixin _hover {
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+@mixin _tablet {
+  @media (max-width: 1359.98px) {
+    @content;
+  }
+}
+
+@mixin _mobile {
+  @media (max-width: 833.98px) {
+    @content;
+  }
+}
+
+$maxWidth: 1440px;
+
+$margin50: 8px;
+$margin75: 12px;
+$margin100: 16px;
+$margin125: 20px;
+$margin150: 24px;
+$margin200: 32px;
+
+$gray10: #262626;
+$gray7: #8C8C8C;
+$gray5: #d9d9d9;
+$gray4: #f0f0f0;
+$gray1: #fff;
+
+$geekblue1: #f0f5ff;
+$geekblue6: #2F54EB;
+$geekblue7: #1d39c4;
+$geekblue9: #061178;
+
+$whiteShadow: inset 0 1px 0 0 $gray4;
+$blackShadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
+
+button {
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+
+  @include _hover {
+    cursor: pointer;
+  }
+}
+
+$h1: 38px;
+$h2: 32px;
+$h3: 24px;
+$h4: 20px;
+$h5: 16px;
+
+@mixin _defaultFont {
+  color: $gray10;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 130%;
+  letter-spacing: 0;
+  text-align: left;
+}
