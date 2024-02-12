@@ -1,0 +1,442 @@
+@import '../../general.scss';
+
+.page {
+  display: flex;
+  justify-content: center;
+  min-height: 1024px;
+  background: url('./assets/Main\ page_light.png') no-repeat center calc(50%);
+
+  @include _tablet {
+    min-height: 1194px;
+    background-size: cover;
+  }
+}
+
+.layout {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  max-width: $maxWidth;
+}
+
+.sider {
+  position: relative;
+  box-shadow: $blackShadow;
+  clip-path: polygon(0 0, 200% 0, 200% 100%, 0% 100%);
+  background: white;
+
+  & > *:last-child {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  @include _mobile {
+    position: fixed;
+    height: 100vh;
+    left: 0;
+  }
+}
+
+.logo {
+  margin: 30px 0;
+  margin-bottom: $margin125;
+  max-width: 100%;
+
+  @include _mobile {
+    width: 100%;
+    margin: 10px 0;
+    margin-left: 4px;
+  }
+}
+
+.nav {
+  margin: $margin100 0;
+
+  @include _mobile {
+    margin: 5px 0;
+  }
+}
+
+.navItem {
+  color: $geekblue9;
+  margin: $margin125 $margin100;
+  list-style-type: none;
+   
+  @include _hover {
+    color: $geekblue7;   
+  }
+  
+  @include _mobile {
+    margin: $margin100 0;
+
+    & > *:first-child {
+      display: none;
+    }      
+  }
+
+  & > *:last-child {
+    @include _defaultFont;
+    margin-left: 10px;
+
+    @include _hover {
+      color: $geekblue7;
+    }
+  }
+}
+
+.exitContainer {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+  box-shadow: $whiteShadow;
+}
+
+.exitButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include _defaultFont;
+  height: 80%;
+  margin: 0 $margin100;
+
+  @include _hover {
+    color: $geekblue7;
+  }
+
+  @include _mobile {
+    width: 100%;
+    & > *:first-child {
+      display: none;
+    }  
+  }
+
+  & > *:not(:first-child) {
+    margin-left: $margin150;
+
+    @include _mobile {
+      margin-left: 0;
+    }
+  }
+}
+
+.siderButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: $margin125;
+  height: 66px;
+  top: 47%;
+  left: 100%;
+  background-color: white;
+  box-shadow: $blackShadow;
+  clip-path: polygon(0 0, 200% $margin100, 200% 50px, 0 100%);
+
+  @include _hover {
+    cursor: pointer;
+    color: $geekblue7;
+  }
+
+  @include _mobile {
+    display: none;
+  }  
+}
+
+.siderButtonMobile {
+  display: none;
+
+  @include _mobile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: $margin200;
+    height: 48px;
+    top: $margin150;
+    background-color: white;
+    box-shadow: $blackShadow;
+    clip-path: polygon(0 0, 200% $margin100, 200% $margin200, 0 100%);
+  }
+
+  @include _hover {
+    cursor: pointer;
+  }
+}
+
+.pageContent {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: auto min-content;
+  background-color: $geekblue1;
+  padding: $margin100 $margin150;
+}
+
+.pageName {
+  grid-column: 1 / 3;
+  @include _defaultFont;
+  margin: 0;
+}
+
+.headerText {
+  @include _defaultFont;
+  font-size: $h1;
+  font-weight: 700;
+  margin: 14px 0 5px;
+  white-space: pre-line;
+
+  @include _tablet {
+    font-size: $margin150;
+    letter-spacing: -0.25px;
+  }
+
+
+  @include _mobile {
+    font-size: $h4;
+    margin-top: 7px;
+  }
+}
+
+.headerButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 129px;
+  height: $margin200;
+  @include _defaultFont;
+  margin-top: $margin50;
+
+  @include _hover {
+    cursor: pointer;
+    color: $geekblue6;
+    box-shadow: 0 -2px 0 $geekblue6 inset;
+  };
+
+  @include _tablet {
+    width: 105px;
+  }
+
+  @include _mobile {
+    content: none;
+    width: $margin200;
+    height: $margin200;
+    background-color: $gray1;
+    border-radius: 100%;
+    border: 1px solid $gray5;
+    box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.04);
+    margin: 0;
+  }
+
+  & > *:first-child {
+    margin-right: 10px;
+
+    @include _tablet {
+      display: none;
+    }
+
+    @include _mobile {
+      display: flex;
+      margin: 0;
+    }
+  }
+}
+
+.main {
+  padding: $margin150;
+
+  @include _mobile {
+    padding: $margin150 $margin100;
+  }
+}
+
+.firstArticle, .secondArticle {
+  max-width: 704px;
+  background-color: $gray1;
+  padding: $margin150;
+  margin-bottom: $margin150;
+
+  @include _mobile {
+    padding: $margin100;
+    margin-bottom: 27px;
+  }
+
+  &.secondArticle {
+    margin-bottom: $margin100;
+  }
+
+  &Text {
+    @include _defaultFont;
+    font-size: $h5;
+    color: $geekblue9;
+
+    &.secondArticleText {  
+      font-size: $h4;
+      font-weight: 500;
+      color: $gray10;
+    }
+  }
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $margin100;
+  max-width: 752px;
+  
+  @include _mobile {
+    grid-template-columns: 1fr;
+    gap: $margin50;
+  }
+}
+
+.card {
+  background-color: $gray1;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include _defaultFont;
+  font-size: $h5;
+  margin: $margin75 $margin150;
+
+  @include _tablet {
+    justify-content: start;
+  }
+  
+  @include _mobile {
+    justify-content: center;
+  }
+
+}
+
+.cardButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 57px;
+  @include _defaultFont;
+  color: $geekblue6;
+  box-shadow: $whiteShadow;
+
+  @include _hover {
+    color: $geekblue7;
+    box-shadow: 1px 1px 0 $geekblue7 inset, -1px -1px 0 $geekblue7 inset;
+    border-radius: 5px;
+  }
+
+  & > *:last-child {
+    margin-left: $margin50;
+  }
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  flex-wrap: wrap;
+  padding: $margin150;
+  padding-bottom: 42px;
+  margin-top: auto;
+
+  @include _mobile {
+    padding: 0 $margin100;
+    padding-bottom: 42px;
+  }
+}
+
+.feedback {
+  height: 40px;
+  @include _defaultFont;
+  font-size: $h5;
+  color: $geekblue6;
+  padding: 0 $margin100;
+
+  
+  @include _mobile {
+    margin: $margin150 auto;
+    margin-bottom: 0;
+  }
+
+  @include _hover {
+    cursor: pointer;
+    color: $geekblue7;
+  }
+}
+
+.download {
+  background-color: $gray1;
+
+  @include _mobile {
+    width: 100%;
+    order: -1;
+  }
+}
+
+.downloadInfo {
+  width: 192px;
+  margin: $margin75 $margin150;
+  @include _defaultFont;
+
+  @include _mobile {
+    width: 100%;
+    text-align: center;
+    margin: $margin75 0;
+  }
+
+  &Link {
+    display: block;
+    font-size: $h5;
+    color: $geekblue6;
+    margin-bottom: $margin50;
+
+    @include _hover {
+      cursor: pointer;
+      color: $geekblue7;
+    }
+  }
+
+  &Title {
+    color: $gray7;
+  }
+}
+
+.downloadButtons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: $whiteShadow;
+}
+
+
+.osButton {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  padding: 19px 0;
+  color: $gray10;
+
+  & > *:first-child {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    margin-right: $margin50;
+    margin-top: 3px;
+  }
+
+  @include _hover {
+    color: $geekblue7;
+    box-shadow: 1px 1px 0 $geekblue7 inset, -1px -1px 0 $geekblue7 inset;
+    border-radius: 5px;
+  }
+}
